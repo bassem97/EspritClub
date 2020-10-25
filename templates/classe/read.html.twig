@@ -1,0 +1,14 @@
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+    </tr>
+    {% for f in classes %}
+        <tr>
+            <td>{{f.ref |upper}}</td>
+            <td>{{f.nom | upper}}</td>
+        </tr>
+    {% else %}
+        <h1>il n ya pas de classe </h1>
+    {% endfor %}
+</table>

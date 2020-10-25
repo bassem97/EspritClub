@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classe{% endblock %}
+
+{% block body %}
+    <h1>Classe</h1>
+
+    <table  class="table table-striped" border="1">
+        <tbody>
+            <tr>
+                <th>Ref</th>
+                <td>{{ classe.ref }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ classe.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{#    <a href="{{ path('classe_index') }}">Retourner a la liste des classes</a>#}
+
+    <a class="btn btn-dark"  href="{{ path('classe_edit', {'ref': classe.ref}) }}">modifier</a>
+
+
+{% endblock %}

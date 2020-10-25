@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classe index{% endblock %}
+
+{% block body %}
+    <h1>Classe index</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ref</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for classe in classes %}
+            <tr>
+                <td>{{ classe.ref }}</td>
+                <td>{{ classe.nom }}</td>
+                <td>
+                    <a class="btn btn-dark" href="{{ path('classe_show', {'ref': classe.ref}) }}">afficher</a>
+                    <a class="btn btn-info"  href="{{ path('classe_edit', {'ref': classe.ref}) }}">modifier</a>
+                    <a class="btn">{{ include('classe/_delete_form.html.twig') }}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

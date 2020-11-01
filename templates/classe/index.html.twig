@@ -1,15 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Classe index{% endblock %}
+{% block title %}Liste des classes {% endblock %}
 
 {% block body %}
-    <h1>Classe index</h1>
-
+    <h1>Liste des classes</h1>
+    <form method="post" action="{{ path('classe_search') }}">
+        Recherche
+        <input type="text" name="search">
+        <input type="submit" value="Rechercher">
+    </form>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Ref</th>
                 <th>Nom</th>
+                <th>Students</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +23,15 @@
             <tr>
                 <td>{{ classe.ref }}</td>
                 <td>{{ classe.nom }}</td>
+                <td>
+                    <ul>
+                        {%  for student in classe.students %}
+                        <li>
+                            <a href="{{ path('student_show', {'nsc': student.nsc}) }}"> {{ student.nsc }}  {{ student.email }}<a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </td>
                 <td>
                     <a class="btn btn-dark" href="{{ path('classe_show', {'ref': classe.ref}) }}">afficher</a>
                     <a class="btn btn-info"  href="{{ path('classe_edit', {'ref': classe.ref}) }}">modifier</a>

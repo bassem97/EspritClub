@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Classe;
 use App\Form\Classe1Type;
 use App\Repository\ClasseRepository;
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -90,5 +92,15 @@ class ClasseController extends AbstractController
         }
 
         return $this->redirectToRoute('classe_index');
+    }
+
+    /**
+     * @Route("/recherche", name="classe_search")
+     */
+    function search(ClasseRepository  $repository, Request $request){
+        $data = $request->get('search');
+        $classe = $repository->findBy([ 'ref'=> $data]) or $repository->findBy([ 'nom'=> $data]) ;
+        return $this->render('classe/index.html.twig', [
+            'classes' => $classe]);
     }
 }

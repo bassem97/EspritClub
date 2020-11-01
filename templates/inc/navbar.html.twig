@@ -7,13 +7,36 @@
 
         <div class="collapse navbar-collapse" id="mobile-nav">
             <ul class="navbar-nav ml-auto">
+                {% if 'classe' in app.request.attributes.get('_route')   %}
 
-                <li class="nav-item">
-                    <a href="/classe/new" class="nav-link">Ajouter classe</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/classe" class="nav-link">liste des classes</a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/classe/new" class="nav-link">Ajouter classe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/classe" class="nav-link">liste des classes</a>
+                    </li>
+                {% endif %}
+
+                {% if 'student' in app.request.attributes.get('_route')   %}
+
+                    <li class="nav-item">
+                        <a href="/student/new" class="nav-link">Ajouter etudiant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/student" class="nav-link">liste des etudiants</a>
+                    </li>
+                {% endif %}
+                {% if 'club' in app.request.attributes.get('_route')   %}
+
+                    <li class="nav-item">
+                        <a href="/club/new" class="nav-link">Ajouter club</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/club" class="nav-link">liste des clubs</a>
+                    </li>
+                {% endif %}
+
+
             </ul>
         </div>
     </div>

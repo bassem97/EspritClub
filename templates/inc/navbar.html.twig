@@ -13,7 +13,13 @@
                         <a href="/classe/new" class="nav-link">Ajouter classe</a>
                     </li>
                     <li class="nav-item">
+                        <a href="/student" class="nav-link">liste des etudiants</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/classe" class="nav-link">liste des classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/club" class="nav-link">liste des clubs</a>
                     </li>
                 {% endif %}
 
@@ -25,11 +31,23 @@
                     <li class="nav-item">
                         <a href="/student" class="nav-link">liste des etudiants</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/classe" class="nav-link">liste des classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/club" class="nav-link">liste des clubs</a>
+                    </li>
                 {% endif %}
                 {% if 'club' in app.request.attributes.get('_route')   %}
 
                     <li class="nav-item">
                         <a href="/club/new" class="nav-link">Ajouter club</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/student" class="nav-link">liste des etudiants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/classe" class="nav-link">liste des classes</a>
                     </li>
                     <li class="nav-item">
                         <a href="/club" class="nav-link">liste des clubs</a>
